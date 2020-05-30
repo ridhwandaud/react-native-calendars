@@ -174,13 +174,18 @@ class ReservationList extends Component {
     }
     const scrollPosition = reservations.length;
     const iterator = props.selectedDay.clone();
-    for (let i = 0; i < 31; i++) {
-      const res = this.getReservationsForDay(iterator, props);
-      if (res) {
-        reservations = reservations.concat(res);
-      }
-      iterator.addDays(1);
+    // for (let i = 0; i < 31; i++) {
+    //   const res = this.getReservationsForDay(iterator, props);
+    //   if (res) {
+    //     reservations = reservations.concat(res);
+    //   }
+    //   iterator.addDays(1);
+    // }
+    const res = this.getReservationsForDay(iterator, props);
+    if (res) {
+      reservations = res;
     }
+    iterator.addDays(1);
 
     return {reservations, scrollPosition};
   }
